@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elsewedy IATS</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.5/dist/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <hr />
+
+      <h1>
+        Elsewedy IATS <br />
+        Wheeler's results 2023/2024
+      </h1>
+      <div class="form-group">
+        <label for="code">Student Code:</label>
+        <input type="text" id="student_code" placeholder="Enter student code" />
+      </div>
+
+      <div class="form-group">
+        <button class="search_button" onclick="search()">Submit</button>
+      </div>
+      <!--Response based on student_code-->
+      <h3 id="student_name"></h3>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>اللغة العربية</td>
+            <td><span id="arabic_mark">40</span>/80</td>
+          </tr>
+          <tr>
+            <td class="eng">اللغــــــــــة الأجنبية</td>
+            <td><span id="english_mark">30</span>/60</td>
+          </tr>
+          <tr>
+            <td>الدراســــــــــات الاجتماعيــــــــــة</td>
+            <td><span id="social_mark"></span>/30</td>
+          </tr>
+          <tr>
+            <td>الرياضيـــــــــــــــــــــــــــــــات</td>
+            <td><span id="math_mark">30</span>/60</td>
+          </tr>
+          <tr>
+            <td>العلـــــــــــــــــــــــــــــوم</td>
+            <td><span id="science_mark">20</span>/60</td>
+          </tr>
+          <!-- <tr>
+            <td>المجموع الأساسي</td>
+            <td><span id="main_total_mark"></span>/20</td>
+          </tr> -->
+          <tr>
+            <td colspan="2" class="all" id="total_cell">
+              المجموع الأساسي <span id="main_total_mark">140</span>/280
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="all">المواد التي لا تضاف للمجموع</td>
+          </tr>
+          <tr>
+            <td>التربيــــــــــة الفنيــــــــــة</td>
+            <td><span id="additional_tf_mark_1">10</span>/20</td>
+          </tr>
+          <tr>
+            <td>الحاســـــــــــب الآلــــــــــــي</td>
+            <td><span id="additional_computer_mark">10</span>/20</td>
+          </tr>
+
+          <tr>
+            <td>التربية الرياضية</td>
+            <td><span id="additional_sport_mark">0</span>/40</td>
+          </tr>
+
+          <tr>
+            <td>التربيــــــــــة الدينيــــــــــة</td>
+            <td><span id="additional_regelion_mark">20</span>/40</td>
+          </tr>
+
+          <tr>
+            <td>المشروع البحثي</td>
+            <td><span id="additional_research_project_mark">25</span>/50</td>
+          </tr>
+
+          <tr>
+            <td>اللغة الأولي مستوي رفيع</td>
+            <td><span id="additional_english_AL_mark">25</span>/50</td>
+          </tr>
+
+          <tr>
+            <td>اللغة الثانية مستوي رفيع</td>
+            <td><span id="additional_second_language_AL_mark">16</span>/40</td>
+          </tr>
+
+          <tr>
+            <td>إظهار أو حجب النتيجة</td>
+            <td><span id="show_or_hide_result"></span></td>
+          </tr>
+          <tr>
+              <td>نتيجة آخر العام</td>
+              <td><span id="last_year_result_mark"></span></td>
+            </tr>
+        </tbody>
+        
+        <tr>
+          <td class="l">ملاحظات</td>
+          <td id="com" class="all"><span id="notes"></span></td>
+        </tr>
+      </table>
+      <h2 id="ma"></h2>
+    </div>
+  </body>
+</html>
