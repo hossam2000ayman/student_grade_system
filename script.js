@@ -132,7 +132,6 @@ function loadExcel() {
         const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
         const columnMapping =
           index === 0 ? expectedColumns.sheet1 : expectedColumns.sheet2;
-        console.log(jsonData);
         for (let i = 1; i < jsonData.length; i++) {
           const row = jsonData[i];
           const studentCode = row[columnMapping.student_code]; // Assuming second column is the student code
@@ -153,7 +152,6 @@ function loadExcel() {
 
 function search() {
   const input = document.getElementById("student_input").value;
-  //whatever if he type student code , or student seat number
   const student = students[input];
 
   if (input == "") {
@@ -209,20 +207,15 @@ function search() {
     let show_or_hide_result = document.getElementById("show_or_hide_result");
     let table = document.getElementById("table");
     let table_container = document.getElementById("table-container");
-    console.log(student.show_or_hide_result);
-    /*first we make a condition if show result is true */
     let show = student.show_or_hide_result == "N/A" ? true : false;
     if (show) {
-      /*show the table with it's style and hide rejection text*/
       show_or_hide_result.style.display = "none";
       table.style.display = "block";
-      //this was work on web but it break on mobile observe it hasan right?
       table_container.style.display = "flex";
       table_container.style.justifyContent = "center";
       table_container.style.alignContent = "center";
       last_year_result_mark.innerHTML = student.last_year_result || "N/A";
     } else {
-      /*hide the table with it's style and show rejection text*/
       show_or_hide_result.style.display = "block";
       show_or_hide_result.style.justifyContent = "center";
       show_or_hide_result.style.alignContent = "center";
