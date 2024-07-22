@@ -27,20 +27,57 @@ body {
   transform: scale(1.05);
 }
 
-h1#title {
-  border: 2px solid #333;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #fafafa;
-  color: #333;
+#header_container {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 30px;
-  font-size: 1.5rem;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 10px;
 }
 
-h1#title:hover {
-  background-color: #333;
-  color: #fafafa;
+#header_right,
+#header_left {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#header_right p,
+#header_left p {
+  margin: 0;
+  font-weight: bold;
+}
+
+#header_right {
+  text-align: right;
+}
+
+#header_left {
+  text-align: left;
+}
+
+#footer_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+#footer_left,
+#footer_center,
+#footer_right {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#footer_left p,
+#footer_center p,
+#footer_right p {
+  margin: 0;
+}
+
+#footer_left,
+#footer_right,
+#footer_center {
+  text-align: right;
 }
 
 .form-group {
@@ -87,16 +124,9 @@ input[type="text"]:hover {
   background-color: #0056b3;
 }
 
-#loading {
-  display: none;
-  font-size: 1.2rem;
-  color: #333;
-  margin-top: 20px;
-}
-
-.table-container {
+#table-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the table container */
   margin-top: 20px;
   animation: fadeIn 1s ease-in-out;
 }
@@ -107,6 +137,17 @@ table {
   box-sizing: border-box;
   display: none;
   animation: fadeInUp 1s ease-in-out;
+}
+
+#show_or_hide_result {
+  display: none;
+  color: red;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+#last_year_result_mark {
+  font-weight: bold;
 }
 
 th,
@@ -138,11 +179,6 @@ tr:hover {
     padding: 20px;
   }
 
-  h1#title {
-    font-size: 1.2rem;
-    padding: 10px;
-  }
-
   label,
   input[type="text"],
   .search_button,
@@ -152,13 +188,49 @@ tr:hover {
     padding: 10px;
   }
 
-  .table-container {
+  #table-container {
     width: 100%;
+    width: 80%; /* or any fixed width */
+    margin: 0 auto;
+    justify-content: center; /* Center the table container */
+    align-items: center;
+    align-content: center;
+    /* margin-top: 20px; */
+    animation: fadeIn 1s ease-in-out;
   }
 
   table {
     width: 100%;
     margin-top: 10px;
+    display: flex;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    display: none;
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  #header_right,
+  #header_left {
+    font-size: 0.8rem;
+  }
+
+  #footer_left,
+  #footer_center,
+  #footer_right {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #header_right,
+  #header_left {
+    font-size: 0.6rem;
+  }
+
+  #footer_left,
+  #footer_center,
+  #footer_right {
+    font-size: 0.6rem;
   }
 }
 

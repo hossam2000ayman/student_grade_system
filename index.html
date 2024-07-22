@@ -1,93 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>School Name</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.5/dist/xlsx.full.min.js"></script>
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <div class="container">
-    <hr />
-    <h1 id="title">Shreif ElSebaey <br /> Shreif ElSebaey's results 2024/2025</h1>
-    <div class="form-group">
-      <label for="student_input">Student Code Or Seat Number:</label>
-      <input type="text" id="student_input" placeholder="Enter student code or seat number" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شريف السباعي الرسمية للغات</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.5/dist/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <hr />
+      <div id="header_container">
+        <div id="header_left">
+          <p>العام الدراسي : ٢٠٢٤/٢٠٢٣</p>
+        </div>
+        <div id="header_right">
+          <p>أدارة : شرق مدينة نصر التعليمية</p>
+          <p>مدرسة : شريف السباعي الرسمية للغات</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="student_input">Student Code Or Seat Number:</label>
+        <input
+          type="text"
+          id="student_input"
+          placeholder="Enter student code or seat number"
+        />
+      </div>
+      <div class="form-group">
+        <button class="search_button" onclick="search()">Submit</button>
+      </div>
+      <h1 id="student_name"></h1>
+      <div id="table-container">
+        <h4 id="show_or_hide_result"></h4>
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Marks</th>
+              <th>Subject</th>
+            </tr>
+          </thead>
+          <tbody class="left">
+            <tr>
+              <td><span id="arabic_mark"></span>/80</td>
+              <td>اللغة العربية</td>
+            </tr>
+            <tr>
+              <td><span id="english_mark"></span>/60</td>
+              <td>اللغــــــــــة الأجنبية</td>
+            </tr>
+            <tr>
+              <td><span id="social_mark"></span>/40</td>
+              <td>الدراســــــــــات الاجتماعيــــــــــة</td>
+            </tr>
+            <tr>
+              <td><span id="math_mark"></span>/60</td>
+              <td>الرياضيـــــــــــــــــــــــــــــــات</td>
+            </tr>
+            <tr>
+              <td><span id="science_mark"></span>/40</td>
+              <td>العلـــــــــــــــــــــــــــــوم</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="all" id="total_cell">
+                المجموع الأساسي <span id="main_total_mark"></span>/280
+              </td>
+            </tr>
+          </tbody>
+          <tbody class="right">
+            <tr>
+              <td colspan="2" class="all">المواد التي لا تضاف للمجموع</td>
+            </tr>
+            <tr>
+              <td><span id="additional_tf_mark"></span>/20</td>
+              <td>التربيــــــــــة الفنيــــــــــة</td>
+            </tr>
+            <tr>
+              <td><span id="additional_computer_mark"></span>/20</td>
+              <td>الحاســـــــــــب الآلــــــــــــي</td>
+            </tr>
+            <tr>
+              <td><span id="additional_sport_mark"></span>/40</td>
+              <td>التربية الرياضية</td>
+            </tr>
+            <tr>
+              <td><span id="additional_regelion_mark"></span>/40</td>
+              <td>التربيــــــــــة الدينيــــــــــة</td>
+            </tr>
+            <tr>
+              <td><span id="additional_reseach_project"></span>/50</td>
+              <td>المشروع البحثي</td>
+            </tr>
+            <tr>
+              <td><span id="additional_english_AL_mark"></span>/50</td>
+              <td>اللغة الأولي مستوي رفيع</td>
+            </tr>
+            <tr>
+              <td><span id="additional_second_language_AL_mark"></span>/40</td>
+              <td>اللغة الثانية مستوي رفيع</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2 id="last_year_result_mark"></h2>
+      <div id="footer_container">
+        <div id="footer_right">
+          <p><b> : مدير المدرسة </b></p>
+          <p>أ/ سامي عبد المنعم</p>
+        </div>
+        <div id="footer_center">
+          <p><b> : رئيس الكنترول</b></p>
+          <p>أ/ ناصر محمود غنيم</p>
+        </div>
+        <div id="footer_left">
+          <p><b> : مسئول الحاسب</b></p>
+          <p>أ/ أيمن حسن البدري</p>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <button class="search_button" onclick="search()">Submit</button>
-    </div>
-    <div id="loading">Loading...</div>
-    <h1 id="student_name"></h1>
-    <div class="table-container">
-      <table id="table">
-        <thead>
-          <tr>
-            <th>Marks</th>
-            <th>Subject</th>
-          </tr>
-        </thead>
-        <tbody class="left">
-          <tr>
-            <td><span id="arabic_mark"></span>/80</td>
-            <td>اللغة العربية</td>
-          </tr>
-          <tr>
-            <td><span id="english_mark"></span>/60</td>
-            <td>اللغــــــــــة الأجنبية</td>
-          </tr>
-          <tr>
-            <td><span id="social_mark"></span>/30</td>
-            <td>الدراســــــــــات الاجتماعيــــــــــة</td>
-          </tr>
-          <tr>
-            <td><span id="math_mark"></span>/60</td>
-            <td>الرياضيـــــــــــــــــــــــــــــــات</td>
-          </tr>
-          <tr>
-            <td><span id="science_mark"></span>/60</td>
-            <td>العلـــــــــــــــــــــــــــــوم</td>
-          </tr>
-          <tr>
-            <td colspan="2" class="all" id="total_cell">
-              المجموع الأساسي <span id="main_total_mark"></span>/280
-            </td>
-          </tr>
-        </tbody>
-        <tbody class="right">
-          <tr>
-            <td colspan="2" class="all">المواد التي لا تضاف للمجموع</td>
-          </tr>
-          <tr>
-            <td><span id="additional_tf_mark"></span>/20</td>
-            <td>التربيــــــــــة الفنيــــــــــة</td>
-          </tr>
-          <tr>
-            <td><span id="additional_computer_mark"></span>/20</td>
-            <td>الحاســـــــــــب الآلــــــــــــي</td>
-          </tr>
-          <tr>
-            <td><span id="additional_sport_mark"></span>/40</td>
-            <td>التربية الرياضية</td>
-          </tr>
-          <tr>
-            <td><span id="additional_regelion_mark"></span>/40</td>
-            <td>التربيــــــــــة الدينيــــــــــة</td>
-          </tr>
-          <tr>
-            <td><span id="additional_english_AL_mark"></span>/50</td>
-            <td>اللغة الأولي مستوي رفيع</td>
-          </tr>
-          <tr>
-            <td><span id="additional_second_language_AL_mark"></span>/40</td>
-            <td>اللغة الثانية مستوي رفيع</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h2 id="last_year_result_mark"></h2>
-  </div>
-</body>
+  </body>
 </html>
