@@ -13,109 +13,350 @@
       <hr />
       <div id="header_container">
         <div id="header_left">
-          <p>العام الدراسي : ٢٠٢٤/٢٠٢٣</p>
+          <img width="100px" height="100px" src="asset/images/logo.png" />
         </div>
         <div id="header_right">
-          <p>أدارة : شرق مدينة نصر التعليمية</p>
-          <p>مدرسة : شريف السباعي الرسمية للغات</p>
+          <p>مديرية التربية و التعليم بمحافظة القاهرة</p>
+          <p style="text-align: center">إدارة شرق مدينة نصر التعليمية</p>
+          <p>مدرسة شريف السباعي الرسمية للغات</p>
         </div>
       </div>
+      <div id="center_container">
+        <p>
+          إستمارة تقييم طالب <span id="student_grade">بالمرحلة الإعدادي </span> وفقاً للقرار الوزاري 137 لسنة
+          2024
+        </p>
+        <p>الفصل الدراسي الأول للعام الدراسي 2024 / 2025</p>
+      </div>
       <div class="form-group">
-        <label for="student_input">Student Code Or Seat Number:</label>
+        <label
+          for="student_input"
+          style="width: 100%; display: flex; justify-content: end"
+          >: كود الطالب او الرقم القومي</label
+        >
         <input
-          type="text"
+          type="number"
           id="student_input"
-          placeholder="Enter student code or seat number"
+          style="direction: rtl"
+          placeholder="كود الطالب او الرقم القومي"
         />
+        <button class="search_button" onclick="startSearch()">Submit</button>
       </div>
-      <div class="form-group">
-        <button class="search_button" onclick="search()">Submit</button>
-      </div>
-      <h1 id="student_name"></h1>
-      <div id="table-container">
-        <h4 id="show_or_hide_result"></h4>
-        <table id="table">
-          <thead>
-            <tr>
-              <th>Marks</th>
-              <th>Subject</th>
-            </tr>
-          </thead>
-          <tbody class="left">
-            <tr>
-              <td><span id="arabic_mark"></span>/80</td>
-              <td>اللغة العربية</td>
-            </tr>
-            <tr>
-              <td><span id="english_mark"></span>/60</td>
-              <td>اللغــــــــــة الأجنبية</td>
-            </tr>
-            <tr>
-              <td><span id="social_mark"></span>/40</td>
-              <td>الدراســــــــــات الاجتماعيــــــــــة</td>
-            </tr>
-            <tr>
-              <td><span id="math_mark"></span>/60</td>
-              <td>الرياضيـــــــــــــــــــــــــــــــات</td>
-            </tr>
-            <tr>
-              <td><span id="science_mark"></span>/40</td>
-              <td>العلـــــــــــــــــــــــــــــوم</td>
-            </tr>
-            <tr>
-              <td colspan="2" class="all" id="total_cell">
-                المجموع الأساسي <span id="main_total_mark"></span>/280
-              </td>
-            </tr>
-          </tbody>
-          <tbody class="right">
-            <tr>
-              <td colspan="2" class="all">المواد التي لا تضاف للمجموع</td>
-            </tr>
-            <tr>
-              <td><span id="additional_tf_mark"></span>/20</td>
-              <td>التربيــــــــــة الفنيــــــــــة</td>
-            </tr>
-            <tr>
-              <td><span id="additional_computer_mark"></span>/20</td>
-              <td>الحاســـــــــــب الآلــــــــــــي</td>
-            </tr>
-            <tr>
-              <td><span id="additional_sport_mark"></span>/40</td>
-              <td>التربية الرياضية</td>
-            </tr>
-            <tr>
-              <td><span id="additional_regelion_mark"></span>/40</td>
-              <td>التربيــــــــــة الدينيــــــــــة</td>
-            </tr>
-            <tr>
-              <td><span id="additional_reseach_project"></span>/50</td>
-              <td>المشروع البحثي</td>
-            </tr>
-            <tr>
-              <td><span id="additional_english_AL_mark"></span>/50</td>
-              <td>اللغة الأولي مستوي رفيع</td>
-            </tr>
-            <tr>
-              <td><span id="additional_second_language_AL_mark"></span>/40</td>
-              <td>اللغة الثانية مستوي رفيع</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h2 id="last_year_result_mark"></h2>
-      <div id="footer_container">
-        <div id="footer_right">
-          <p><b> : مدير المدرسة </b></p>
-          <p>أ/ سامي عبد المنعم</p>
+      <h1 id="student_name" style="font-size: 25px"></h1>
+      <div id="certificate-container">
+        <div id="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>الدرجة الفعلية</th>
+                <th>المجموع 100</th>
+                <th>اختبار الفصل الدراسي الأول 30</th>
+                <th>التقييم الأسبوعي 20</th>
+                <th>الواجبات 10</th>
+                <th>المواظبة و السلوك 10</th>
+                <th>الإختبارات الشهرية 30</th>
+                <th>المادة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span
+                      style="margin: 10px 0px"
+                      id="arabic_actual_mark"
+                    ></span>
+                    <span style="border-top: 3px solid black">40</span>
+                  </div>
+                </td>
+                <td><span id="arabic_detailed_total_mark"></span></td>
+                <td><span id="arabic_first_semester_exam"></span></td>
+                <td><span id="arabic_weekly_assessment"></span></td>
+                <td><span id="arabic_homework"></span></td>
+                <td><span id="arabic_behavior_and_attendance"></span></td>
+                <td><span id="arabic_monthly_tests"></span></td>
+                <td><b>اللغة العربية و الخط العربي</b></td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px" id="english_actual_mark"
+                      >0</span
+                    >
+                    <span style="border-top: 3px solid black">30</span>
+                  </div>
+                </td>
+                <td><span id="english_detailed_total_mark"></span></td>
+                <td><span id="english_first_semester_exam"></span></td>
+                <td><span id="english_weekly_assessment"></span></td>
+                <td><span id="english_homework"></span></td>
+                <td><span id="english_behavior_and_attendance"></span></td>
+                <td><span id="english_monthly_tests"></span></td>
+                <td><b>اللغة الإنجليزية</b></td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px" id="social_actual_mark"
+                      >0</span
+                    >
+                    <span style="border-top: 3px solid black">20</span>
+                  </div>
+                </td>
+                <td><span id="social_detailed_total_mark"></span></td>
+                <td><span id="social_first_semester_exam"></span></td>
+                <td><span id="social_weekly_assessment"></span></td>
+                <td><span id="social_homework"></span></td>
+                <td><span id="social_behavior_and_attendance"></span></td>
+                <td><span id="social_monthly_tests"></span></td>
+                <td><b>الدراسات الإجتماعية</b></td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px" id="math_actual_mark"
+                      >0</span
+                    >
+                    <span style="border-top: 3px solid black">30</span>
+                  </div>
+                </td>
+                <td><span id="math_detailed_total_mark"></span></td>
+                <td><span id="math_first_semester_exam"></span></td>
+                <td><span id="math_weekly_assessment"></span></td>
+                <td><span id="math_homework"></span></td>
+                <td><span id="math_behavior_and_attendance"></span></td>
+                <td><span id="math_monthly_tests"></span></td>
+                <td><b>الرياضيات</b></td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px" id="science_actual_mark"
+                      >0</span
+                    >
+                    <span style="border-top: 3px solid black">20</span>
+                  </div>
+                </td>
+                <td><span id="science_detailed_total_mark"></span></td>
+                <td><span id="science_first_semester_exam"></span></td>
+                <td><span id="science_weekly_assessment"></span></td>
+                <td><span id="science_homework"></span></td>
+                <td><span id="science_behavior_and_attendance"></span></td>
+                <td><span id="science_monthly_tests"></span></td>
+                <td><b>العلوم</b></td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px" id="actual_total_mark">0</span>
+                    <span style="border-top: 3px solid black">140</span>
+                  </div>
+                </td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px" id="total_mark">0</span>
+                    <span style="border-top: 3px solid black">500</span>
+                  </div>
+                </td>
+                <td><span></span></td>
+                <td><span></span></td>
+                <td><span></span></td>
+                <td><span></span></td>
+                <td><span></span></td>
+                <td><b>المجموع</b></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="display: flex; width: 100%; justify-content: center">
+            <p
+              style="
+                border: 3px solid black;
+                margin: 5px;
+                padding: 0px 15px;
+                font-size: 20px;
+                font-weight: bold;
+              "
+            >
+              مواد نجاح و رسوب لا تضاف للمجموع
+            </p>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>الدرجة</th>
+                <th>المادة</th>
+                <th>الدرجة</th>
+                <th>المادة</th>
+                <th>الدرجة</th>
+                <th>المادة</th>
+                <th>الدرجة</th>
+                <th>المادة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">10</span>
+                  </div>
+                </td>
+                <td>التربية الموسيقية</td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">10</span>
+                  </div>
+                </td>
+                <td>التربية الفنية</td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">10</span>
+                  </div>
+                </td>
+                <td>التربية الرياضية</td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">20</span>
+                  </div>
+                </td>
+                <td>التربية الدينية</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">10</span>
+                  </div>
+                </td>
+                <td>نشاط اختياري 2</td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">10</span>
+                  </div>
+                </td>
+                <td>نشاط اختياري 1</td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">10</span>
+                  </div>
+                </td>
+                <td>الكمبيوتر و تكنولوجيا المعلومات</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">20</span>
+                  </div>
+                </td>
+                <td>اللغة الاجنبية الثانية</td>
+                <td>
+                  <div style="display: flex; flex-direction: column">
+                    <span style="margin: 10px 0px">0</span>
+                    <span style="border-top: 3px solid black">25</span>
+                  </div>
+                </td>
+                <td>اللغة الاجنبية الاولى المستوى الرفيع</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div id="footer_center">
-          <p><b> : رئيس الكنترول</b></p>
-          <p>أ/ ناصر محمود غنيم</p>
+        <div id="summary-container">
+          <div
+            id="attendence-percentage-container"
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div
+              id="actual-mark-section"
+              style="
+                width: 70%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+              "
+            >
+              <div style="display: flex; flex-direction: column">
+                <span style="font-size: 12px; font-weight: bold">
+                  مجموع الدرجات من 100 × الدرجة الكلية للمادة لكل فصل دراسي
+                </span>
+                <span
+                  style="
+                    font-size: 12px;
+                    font-weight: bold;
+                    border-top: 3px solid black;
+                  "
+                >
+                  100
+                </span>
+              </div>
+              <span style="font-size: 12px;"><b>=</b></span>
+              <span style="font-size: 12px;"><b>الدرجة الفعلية</b></span>
+            </div>
+            <div
+              id="percentage-section"
+              style="
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+              "
+            >
+              <span style="margin-right: 5px"><b>%......</b></span>
+              <span><b>النسبة المئوية للحضور</b></span>
+            </div>
+          </div>
+          <div id="note-container" style="display: flex; flex-direction: row">
+            <span style="width: 90%; border: 3px solid; padding: 3px">
+              <b>
+                مجموع درجات المادة 100 ( الإختبارات الشهرية ، السلوك و المواظبة
+                ، الواجبات ، التقييمات الأسبوعية ، إختبار الفصل الدراسي الأول )
+              </b>
+            </span>
+            <span
+              style="
+                width: 10%;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+              "
+            >
+              <b>: ملحوظة</b>
+            </span>
+          </div>
         </div>
-        <div id="footer_left">
-          <p><b> : مسئول الحاسب</b></p>
-          <p>أ/ أيمن حسن البدري</p>
+        <div id="footer-container">
+          <div>
+            <p><b>مدير المدرسة </b></p>
+            <p>أ/ سامي عبد المنعم</p>
+          </div>
+          <div>
+            <p><b>رئيس الكنترول</b></p>
+            <p>أ/ ناصر محمود غنيم</p>
+          </div>
+          <div>
+            <p><b>مسئول الحاسب</b></p>
+            <p>أ/ أيمن حسن البدري</p>
+          </div>
+          <div>
+            <p><b>شئون الطلبة</b></p>
+            <p>أ / مروة محمد سابق</p>
+          </div>
         </div>
       </div>
     </div>
