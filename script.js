@@ -198,26 +198,22 @@ const expectedColumns = {
     detailed_actual_total_mark_2: 40,
     // 41: "دين"
     religion_2: 41,
-    // 42: "رياضة"
-    sport_2: 42,
-    // 43: "فنيه"
-    art_2: 43,
-    // 44: "موسيقي"
-    music_2: 44,
-    // 45: "حاسب الي"
-    computer_2: 45,
-    // 46: "اختياري 1"
-    optional_1_2: 46,
-    // 47: "اختياري 2"
-    optional_2_2: 47,
-    // 48: "انجليزي رفيع"
-    english_high_2: 48,
-    // 49: "لغه ثانية"
-    second_language_2: 49,
-    // 50: "نسبة الحضور"
-    attendance_percentage_2: 50,
-    // 51: "حجب"
-    show_or_hide_result_2: 51,
+    // 42: "فنيه"
+    art_2: 42,
+    // 43: "حاسب الي"
+    computer_2: 43,
+    // 44: "اختياري 1"
+    optional_1_2: 44,
+    // 45: "اختياري 2"
+    optional_2_2: 45,
+    // 46: "انجليزي رفيع"
+    english_high_2: 46,
+    // 47: "لغه ثانية"
+    second_language_2: 47,
+    // 48: "نسبة الحضور"
+    attendance_percentage_2: 48,
+    // 49: "حجب"
+    show_or_hide_result_2: 49,
   },
 };
 
@@ -430,9 +426,6 @@ function search() {
   };
   let additional_2 = {
     religion: document.getElementById("religion_2"),
-    sport: document.getElementById("sport_2"),
-    art: document.getElementById("art_2"),
-    music: document.getElementById("music_2"),
     computer: document.getElementById("computer_2"),
     optional1: document.getElementById("optional_1_2"),
     optional2: document.getElementById("optional_2_2"),
@@ -620,15 +613,12 @@ function search() {
           student.arabic_actual_mark_2 || "N/A";
 
       additional_2.religion.innerText = student.religion_2 || "N/A";
-      additional_2.sport.innerText = student.sport_2 || "N/A";
       additional_2.computer.innerText = student.computer_2 || "N/A";
       additional_2.englishHigh.innerText = student.english_high_2 || "N/A";
       additional_2.optional1.innerText = student.optional_1_2 || "N/A";
       additional_2.optional2.innerText = student.optional_2_2 || "N/A";
       additional_2.secondLanguage.innerText =
         student.second_language_2 || "N/A";
-      additional_2.art.innerText = student.art_2 || "N/A";
-      additional_2.music.innerText = student.music_2 || "N/A";
     } else {
       studentName.innerText = "";
       grade.innerHTML = "بالمرحلة الإعدادي";

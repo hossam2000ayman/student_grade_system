@@ -12,18 +12,17 @@
 
 <body>
   <div class="container">
-    <hr />
-    <div id="header_container">
-      <div id="header_left">
-        <img width="100px" height="100px" src="asset/images/logo.png" />
+    <div id="header-container">
+      <div id="header-left">
+        <img width="90px" height="90px" src="asset/images/logo.png" />
       </div>
-      <div id="header_right">
+      <div id="header-right">
         <p>مديرية التربية و التعليم بمحافظة القاهرة</p>
         <p style="text-align: center">إدارة شرق مدينة نصر التعليمية</p>
         <p>مدرسة شريف السباعي الرسمية للغات</p>
       </div>
     </div>
-    <div id="center_container">
+    <div id="center-container">
       <p>
         إستمارة تقييم طالب <span id="student_grade">بالمرحلة الإعدادي </span> وفقاً للقرار الوزاري 137 لسنة
         2024
@@ -36,9 +35,8 @@
       <input type="number" id="student_input" style="direction: rtl" placeholder="كود الطالب او الرقم القومي" />
       <button class="search_button" onclick="startSearch()">Submit</button>
     </div>
-    <h1 id="student_name" style="font-size: 25px"></h1>
+    <h1 id="student_name" style="font-size: 20px"></h1>
     <div id="certificate-container">
-
       <div id="first-section">
         <div id="table-container">
           <table>
@@ -157,7 +155,7 @@
                 border: 3px solid black;
                 margin: 5px;
                 padding: 0px 15px;
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: bold;
               ">
               مواد نجاح و رسوب لا تضاف للمجموع
@@ -395,27 +393,17 @@
             </thead>
             <tbody>
               <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                   <div style="display: flex; flex-direction: column">
-                    <span style="margin: 10px 0px" id="music_2">0</span>
+                    <span style="margin: 10px 0px" id="computer_2">0</span>
                     <span style="border-top: 3px solid black">10</span>
                   </div>
                 </td>
-                <td>التربية الموسيقية</td>
-                <td>
-                  <div style="display: flex; flex-direction: column">
-                    <span style="margin: 10px 0px" id="art_2">0</span>
-                    <span style="border-top: 3px solid black">10</span>
-                  </div>
-                </td>
-                <td>التربية الفنية</td>
-                <td>
-                  <div style="display: flex; flex-direction: column">
-                    <span style="margin: 10px 0px" id="sport_2">0</span>
-                    <span style="border-top: 3px solid black">10</span>
-                  </div>
-                </td>
-                <td>التربية الرياضية</td>
+                <td>الكمبيوتر و تكنولوجيا المعلومات</td>
                 <td>
                   <div style="display: flex; flex-direction: column">
                     <span style="margin: 10px 0px" id="religion_2">0</span>
@@ -425,8 +413,6 @@
                 <td>التربية الدينية</td>
               </tr>
               <tr>
-                <td></td>
-                <td></td>
                 <td>
                   <div style="display: flex; flex-direction: column">
                     <span style="margin: 10px 0px" id="optional_2_2">0</span>
@@ -441,19 +427,6 @@
                   </div>
                 </td>
                 <td>نشاط اختياري 1</td>
-                <td>
-                  <div style="display: flex; flex-direction: column">
-                    <span style="margin: 10px 0px" id="computer_2">0</span>
-                    <span style="border-top: 3px solid black">10</span>
-                  </div>
-                </td>
-                <td>الكمبيوتر و تكنولوجيا المعلومات</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
                 <td>
                   <div style="display: flex; flex-direction: column">
                     <span style="margin: 10px 0px" id="second_language_2">0</span>
@@ -507,13 +480,14 @@
                 display: flex;
                 align-items: center;
                 justify-content: end;
+                font-size: 12px;
               ">
             <span style="margin-right: 5px"><b>%<span id="attendance_percentage">......</span></b></span>
             <span><b>النسبة المئوية للحضور</b></span>
           </div>
         </div>
         <div id="note-container" style="display: flex; flex-direction: row">
-          <span style="width: 90%; border: 3px solid; padding: 3px">
+          <span style="width: 90%; border: 3px solid; padding: 3px; font-size: 12px;">
             <b>
               مجموع درجات المادة 100 ( الإختبارات الشهرية ، السلوك و المواظبة
               ، الواجبات ، التقييمات الأسبوعية ، إختبار الفصل الدراسي الأول )
@@ -521,6 +495,7 @@
           </span>
           <span style="
                 width: 10%;
+                font-size: 12px;
                 display: flex;
                 align-items: center;
                 justify-content: end;

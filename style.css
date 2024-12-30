@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
@@ -27,46 +27,40 @@ body {
   transform: scale(1.05);
 }
 
-#header_container {
+#header-container {
   display: flex;
   justify-content: space-between;
   margin: 10px;
 }
 
-#header_right,
-#header_left {
-  font-size: 1.2rem;
-  color: #333;
-}
-
-#header_right p,
-#header_left p {
+#header-right {
   margin: 0;
+  font-size: 12px;
+  color: #333;
   font-weight: bold;
-}
-
-#header_right {
   display: flex;
   flex-direction: column;
   text-align: right;
   justify-content: center;
 }
 
-#header_left {
+#header-left {
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
-#center_container {
+#center-container {
   display: flex;
   text-align: center;
   justify-content: center;
   flex-direction: column;
 }
-#center_container p {
+#center-container p {
   font-weight: bold;
-  font-size: 1.5rem;
-  margin: 9px;
-  padding: 4px;
+  font-size: 15px;
+  margin: 4px 0px;
+  padding: 4px 0px;
   border: 3px solid black;
 }
 
@@ -140,7 +134,7 @@ input[type="number"]:hover {
 #table-container {
   flex-direction: column;
   justify-content: center;
-  margin: 20px 0px;
+  margin: 0px;
   animation: fadeInUp 2s ease-in-out;
 }
 #table-container table {
@@ -154,16 +148,28 @@ input[type="number"]:hover {
 /* font-size: xx-large; */
 /* } */
 
+#note-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#note-title {
+  width: 90%;
+  border: 3px solid;
+  padding: 3px;
+  font-size: 12px;
+}
+
 th,
 td {
   border: 1px solid #ccc;
   text-align: center;
-  font-size: 1rem;
+  font-size: 10px;
 }
 
 th {
   background-color: #f2f2f2;
-  font-size: 1.2rem;
+  font-size: 13px;
 }
 
 tr:hover {
@@ -185,9 +191,8 @@ tr:hover {
     padding: 10px;
   }
 
-  #header_right,
-  #header_left {
-    font-size: 0.8rem;
+  #header-right {
+    font-size: 10px;
   }
 
   #footer_left,
@@ -198,9 +203,8 @@ tr:hover {
 }
 
 @media (max-width: 400px) {
-  #header_right,
-  #header_left {
-    font-size: 0.6rem;
+  #header-right {
+    font-size: 7px;
   }
 
   #footer_left,
