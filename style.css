@@ -35,7 +35,7 @@ body {
 
 #header-right {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #333;
   font-weight: bold;
   display: flex;
@@ -81,15 +81,12 @@ body {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin: 10px 0px;
   text-align: left;
 }
 
 label {
-  display: block;
-  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
 input[type="number"] {
@@ -131,22 +128,33 @@ input[type="number"]:hover {
   animation: fadeInUp 1s ease-in-out;
 }
 
-#table-container {
+.table-container {
   flex-direction: column;
   justify-content: center;
   margin: 0px;
   animation: fadeInUp 2s ease-in-out;
 }
-#table-container table {
+.table-container table {
+  align-items: end;
   width: 100%;
 }
+.table-container table thead {
+  height: 35px;
+}
 
-/* #show_or_hide_result { */
-/* display: none; */
-/* color: red; */
-/* font-weight: bold; */
-/* font-size: xx-large; */
-/* } */
+#info-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#info-title {
+  border: 3px solid black;
+  margin: 5px;
+  padding: 0px 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
 
 #note-container {
   display: flex;
@@ -154,17 +162,24 @@ input[type="number"]:hover {
 }
 
 #note-title {
+  width: 10%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#note-description {
   width: 90%;
   border: 3px solid;
   padding: 3px;
   font-size: 12px;
 }
 
-th,
 td {
   border: 1px solid #ccc;
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 th {
@@ -176,13 +191,36 @@ tr:hover {
   background-color: #f9f9f9;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 993px) {
   .container {
-    width: 100%;
+    width: 60%;
+    padding: 25px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+  .container {
+    width: 80%;
     padding: 20px;
   }
+  #note-title {
+    width: 20%;
+  }
 
-  label,
+  #note-description {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 89%;
+    padding: 15px;
+  }
+  #header-right {
+    font-size: 13px;
+  }
+
   input[type="text"],
   .search_button,
   th,
@@ -191,8 +229,27 @@ tr:hover {
     padding: 10px;
   }
 
-  #header-right {
-    font-size: 10px;
+  .table-container {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .table-container table thead {
+    height: 35px;
+  }
+
+  #info-container {
+    width: 50%;
+  }
+
+  #note-title {
+    width: 20%;
+  }
+
+  #note-description {
+    width: 80%;
   }
 
   #footer_left,
@@ -204,25 +261,13 @@ tr:hover {
 
 @media (max-width: 400px) {
   #header-right {
-    font-size: 7px;
+    font-size: 11px;
   }
 
   #footer_left,
   #footer_center,
   #footer_right {
     font-size: 0.6rem;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 992px) {
-  .container {
-    width: 80%;
-  }
-}
-
-@media (min-width: 993px) {
-  .container {
-    width: 60%;
   }
 }
 
