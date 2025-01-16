@@ -226,7 +226,6 @@ function loadExcel() {
       workbook.SheetNames.forEach((sheetName, index) => {
         const sheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-        console.log("jsonData :: ", jsonData);
         const columnMapping =
           index === 0 ? expectedColumns.sheet1 : expectedColumns.sheet2;
         for (let i = 1; i < jsonData.length; i++) {
@@ -434,7 +433,6 @@ function search() {
   };
   let attendancePercentage = document.getElementById("attendance_percentage");
   if (student) {
-    console.log("student :: ", student);
     certificateContainer.style.display = "flex";
     if (student["grade"] === "1st prep") {
       studentName.innerText =

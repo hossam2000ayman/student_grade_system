@@ -4,12 +4,21 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "obfuscate": "javascript-obfuscator script.js --output ./dist/script.js",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jspdf": "^2.5.2"
+  },
+  "devDependencies": {
+    "cssnano-cli": "^1.0.5",
+    "gh-pages": "^6.3.0",
+    "html-minifier-terser": "^7.2.0",
+    "javascript-obfuscator": "^4.1.1"
   }
 }

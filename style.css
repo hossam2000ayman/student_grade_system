@@ -142,13 +142,13 @@ input[type="number"]:hover {
   height: 35px;
 }
 
-#info-container {
+.info-container {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-#info-title {
+.info-title {
   border: 3px solid black;
   margin: 5px;
   padding: 0px 15px;
@@ -240,9 +240,6 @@ tr:hover {
     height: 35px;
   }
 
-  #info-container {
-    width: 50%;
-  }
 
   #note-title {
     width: 20%;
