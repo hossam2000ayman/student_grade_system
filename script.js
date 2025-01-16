@@ -275,7 +275,7 @@ function startSearch() {
   //todo start to add loading for this delay
   setTimeout(() => {
     search();
-  }, 200);
+  }, 300);
 }
 
 function search() {
@@ -635,7 +635,5 @@ function search() {
     return;
   }
 }
-
-
 
 window.onload = loadExcel;
