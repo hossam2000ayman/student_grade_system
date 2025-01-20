@@ -1,4 +1,5 @@
 {
+  "homepage": "https://hossam2000ayman.github.io/papa_project",
   "name": "papa_project",
   "version": "1.0.0",
   "description": "",
@@ -7,13 +8,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "obfuscate": "javascript-obfuscator script.js --output ./dist/script.js",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jspdf": "^2.5.2"
+    "exceljs": "^4.4.0",
+    "jspdf": "^2.5.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "cssnano-cli": "^1.0.5",

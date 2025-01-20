@@ -218,14 +218,14 @@ const expectedColumns = {
 };
 
 function loadExcel() {
-  fetch("asset/data/بيانات جديدة.xlsx")
+  fetch("asset/data/شهادات اعدادي جديدة.xlsx")
     .then((res) => res.arrayBuffer())
     .then((data) => {
       const workbook = XLSX.read(data, { type: "array" });
-
       workbook.SheetNames.forEach((sheetName, index) => {
         const sheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+        console.log("jsonData :: ", jsonData);
         const columnMapping =
           index === 0 ? expectedColumns.sheet1 : expectedColumns.sheet2;
         for (let i = 1; i < jsonData.length; i++) {
@@ -433,7 +433,6 @@ function search() {
   };
   let attendancePercentage = document.getElementById("attendance_percentage");
   if (student) {
-    certificateContainer.style.display = "flex";
     if (student["grade"] === "1st prep") {
       studentName.innerText =
         `أسم الطالب: ${student["student_name_1"]}` || "N/A";
@@ -442,6 +441,14 @@ function search() {
       firstSection.style.display = "block";
       secondSection.style.display = "none";
 
+      if (student.show_or_hide_result_1 !== undefined) {
+        document.getElementById("show_or_hide_result").style.display = "block";
+        certificateContainer.style.display = "none";
+        return;
+      } else {
+        document.getElementById("show_or_hide_result").style.display = "none";
+        certificateContainer.style.display = "flex";
+      }
       arabic_1.monthlyTests.innerText = student.arabic_monthly_tests_1 || "N/A";
       arabic_1.behaviorAndAttendance.innerText =
         student.arabic_behavior_and_attendance_1 || "N/A";
@@ -535,6 +542,15 @@ function search() {
       firstSection.style.display = "none";
       secondSection.style.display = "block";
 
+      if (student.show_or_hide_result_2 !== undefined) {
+        document.getElementById("show_or_hide_result").style.display = "block";
+        certificateContainer.style.display = "none";
+        return;
+      } else {
+        document.getElementById("show_or_hide_result").style.display = "none";
+        certificateContainer.style.display = "flex";
+      }
+
       arabic_2.monthlyTests.innerText = student.arabic_monthly_tests_2 || "N/A";
       arabic_2.behaviorAndAttendance.innerText =
         student.arabic_behavior_and_attendance_2 || "N/A";
@@ -620,8 +636,9 @@ function search() {
     } else {
       studentName.innerText = "";
       grade.innerHTML = "بالمرحلة الإعدادي";
-      firstSection.style.display = "none";
-      secondSection.style.display = "none";
+      certificateContainer.style.display = "none";
+      // firstSection.style.display = "none";
+      // secondSection.style.display = "none";
     }
   } else {
     alert(

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf-npm-packages@1.3.5/dist/jspdf.min.js"></script>
-  <script src="./dist/script.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -37,6 +37,9 @@
       <button class="search_button" onclick="startSearch()">Submit</button>
     </div>
     <h1 id="student_name" style="font-size: 20px"></h1>
+    <div id="show_or_hide_result" style="display: none">
+      <h1>عفواً تم حجب النتيجة لعدم دفع المصاريف</h1>
+    </div>
     <div id="certificate-container">
       <div id="first-section">
         <div class="table-container">
