@@ -437,11 +437,11 @@ function search() {
       studentName.innerText =
         `أسم الطالب: ${student["student_name_1"]}` || "N/A";
       grade.innerHTML = "بالصف الاول الاعدادي";
-      attendancePercentage.innerText = student.attendance_percentage_1 * 100;
+      attendancePercentage.innerText = (student.attendance_percentage_1 * 100).toFixed(2);
       firstSection.style.display = "block";
       secondSection.style.display = "none";
 
-      if (student.show_or_hide_result_1 !== undefined) {
+      if (student.show_or_hide_result_1 !== "N/A") {
         document.getElementById("show_or_hide_result").style.display = "block";
         certificateContainer.style.display = "none";
         return;
@@ -512,17 +512,17 @@ function search() {
       science_1.actualMark.innerText = student.science_actual_mark_1 || "N/A";
 
       total_1.totalMark.innerHTML =
-        student.science_detailed_total_mark_1 +
+        (student.science_detailed_total_mark_1 +
           student.math_detailed_total_mark_1 +
           student.social_detailed_total_mark_1 +
           student.english_detailed_total_mark_1 +
-          student.arabic_detailed_total_mark_1 || "N/A";
+          student.arabic_detailed_total_mark_1).toFixed(2) || "N/A";
       total_1.actualTotalMark.innerHTML =
-        student.science_actual_mark_1 +
+        (student.science_actual_mark_1 +
           student.math_actual_mark_1 +
           student.social_actual_mark_1 +
           student.english_actual_mark_1 +
-          student.arabic_actual_mark_1 || "N/A";
+          student.arabic_actual_mark_1).toFixed(2) || "N/A";
 
       additional_1.religion.innerText = student.religion_1 || "N/A";
       additional_1.sport.innerText = student.sport_1 || "N/A";
@@ -538,11 +538,11 @@ function search() {
       studentName.innerText =
         `أسم الطالب: ${student["student_name_2"]}` || "N/A";
       grade.innerHTML = "بالصف الثاني الاعدادي";
-      attendancePercentage.innerText = student.attendance_percentage_2 * 100;
+      attendancePercentage.innerText = (student.attendance_percentage_2 * 100).toFixed(2);
       firstSection.style.display = "none";
       secondSection.style.display = "block";
 
-      if (student.show_or_hide_result_2 !== undefined) {
+      if (student.show_or_hide_result_2 !== "N/A") {
         document.getElementById("show_or_hide_result").style.display = "block";
         certificateContainer.style.display = "none";
         return;
@@ -614,17 +614,17 @@ function search() {
       science_2.actualMark.innerText = student.science_actual_mark_2 || "N/A";
 
       total_2.totalMark.innerHTML =
-        student.science_detailed_total_mark_2 +
+        (student.science_detailed_total_mark_2 +
           student.math_detailed_total_mark_2 +
           student.social_detailed_total_mark_2 +
           student.english_detailed_total_mark_2 +
-          student.arabic_detailed_total_mark_2 || "N/A";
+          student.arabic_detailed_total_mark_2).toFixed(2) || "N/A";
       total_2.actualTotalMark.innerHTML =
-        student.science_actual_mark_2 +
+        (student.science_actual_mark_2 +
           student.math_actual_mark_2 +
           student.social_actual_mark_2 +
           student.english_actual_mark_2 +
-          student.arabic_actual_mark_2 || "N/A";
+          student.arabic_actual_mark_2).toFixed(2) || "N/A";
 
       additional_2.religion.innerText = student.religion_2 || "N/A";
       additional_2.computer.innerText = student.computer_2 || "N/A";
@@ -637,8 +637,6 @@ function search() {
       studentName.innerText = "";
       grade.innerHTML = "بالمرحلة الإعدادي";
       certificateContainer.style.display = "none";
-      // firstSection.style.display = "none";
-      // secondSection.style.display = "none";
     }
   } else {
     alert(
